@@ -9,6 +9,23 @@ How to use:
 2. Ensure that you have the scrapy library installed
 
  -On a ubuntu-based machine, apt-get install python-scrapy
+ -pip install should also work if you prefer to install it that way
+
+3. Locate the file called runme.sh. This is a bash script to begin the crawler
+
+4. run the shell command './runme.sh'
+
+----OLD (Manual) WAY OF STARTING THE SCRIPT----
+
+How to use:
+
+1. Ensure that you have python installed
+
+ -Available from download on the web and from linux repos of your choice
+
+2. Ensure that you have the scrapy library installed
+
+ -On a ubuntu-based machine, apt-get install python-scrapy
   pip install should also work if you prefer to install it that way
 
 3. From this folder, navigate to sample/spiders/test.py
