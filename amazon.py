@@ -9,7 +9,7 @@ item = "item"
 # url = "https://www.amazon.com"
 
 #	If there are any spaces in the search string somehow, fix them now
-item = "+".join(item.split())
+item = item.replace(" ", "+")
 
 #	Next, we need the search URL. Try searching something generic on the website
 #	to find it. For Amazon, it's this:
@@ -21,10 +21,32 @@ r = requests.get(url)
 
 #	Create a soup object from that request
 #	This will make it easier to search for stuff
-soup = bsoup(r.text, "html.parser")
+soup = bsoup(r.text, "lxml")
+
+# if "href" in soup.find("div", {"class": "a-row a-spacing-none"}).prettify():
+# 	print "found a URL"
+# else:
+# 	print "No URL found :'("
+
+# for link in soup.findAll("div"):
+# print link
+
+
+urllist = []
+
+#	Grab the search results of the page itself
+#	THIS IS DEPENDENT ON THE WEBSITE ITSELF, SO SEARCH WITH SEARCH ELEMENT IN YOUR BROWSER
+results =  str(soup.find("div", {"class": "s-result-list-parent-container"}))
+#print results
+
+while results.find("href=") != -1:
+	print results.find("href=")
+	
+#for soup.find
+	#urllist.append("".join(link.prettify().split()))
 
 
 
 #	Bonus test stuff I was working work to see if I was getting the url right.
-		# print r.text.encode('utf-8')
+#	print r.text.encode('utf-8')
 		# print r.url
