@@ -1,0 +1,148 @@
+/****************************************
+GENERAL
+****************************************/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/****************************************
+HEADING
+****************************************/
+
+header {
+  margin: 100px 0 30px 0;
+  padding: 5px 0 0 0;
+  width: 100%;
+}
+
+#logo {
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  font-size: 3em;
+  font-weight: normal;
+  line-height: 0.8em;
+  letter-spacing: 4px;
+}
+
+
+
+/****************************************
+NAVIGATION
+****************************************/
+
+nav {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 10px 0;
+  margin: 20px 0 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+nav li{
+  display: inline-block;
+}
+
+nav a{
+  padding: 15px 10px;
+}
+
+/****************************************
+SEARCH BAR
+****************************************/
+
+#search {
+  margin: 0 auto;
+  padding: 0;
+}
+
+#search_bar {
+  padding: 1% 3%;
+  width: 100%;
+  font-size: 1.2em;
+  display: inline-block;
+  height: 5%;
+}
+
+.button {
+  background-color: #fff;
+  color: #555;
+  display: inline-block;
+  min-width: 100px;
+  width: 15%;
+  height: 5%;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin: 15px 2px;
+}
+
+.button:hover {
+  background-color: #eee;
+  color: #33adff;
+  border-style: solid;
+  border-color: #ccc;
+  border-width: 1px;
+}
+
+
+/****************************************
+WEBSITE SELECT
+****************************************/
+
+
+
+
+/****************************************
+FOOTER
+****************************************/
+
+footer {
+  font-size: 0.75em;
+  text-align: center;
+  clear: both;
+  padding-top: 50px;
+  color: #ccc;
+    display: none;
+}
+
+
+
+/****************************************
+COLORS
+****************************************/
+
+/* links */
+a {
+  color: #000;
+}
+
+a:visited {
+  color: #000;
+}
+
+a:hover {
+  color: #33adff;
+}

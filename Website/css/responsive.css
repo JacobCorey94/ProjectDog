@@ -1,0 +1,14 @@
+@media screen and (max-width: 480px) {
+  header {
+    margin: 20px auto 20px auto;
+    width: 100%;
+  }
+  #logo h1 {
+    font-size: 3em;
+    letter-spacing: 5px;
+    line-height: 0.8em;
+  }
+  nav li {
+    font-size: 1.3em;
+  }
+}
