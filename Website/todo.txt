@@ -8,7 +8,7 @@ To do
 		-Add each website that is checked to an array
 	+Seach bar (javascript)
 		-When either the search button is pressed 
-		or the enter key is pressed while the is the active element,
+		or the enter key is pressed while it is the active element,
 		save the string in the search bar into a variable
 		-Replace all whitespaces in the string with a '+'
 		-Send the string along with the list of websites to search to back-end
