@@ -1,5 +1,4 @@
 To do
-	+Master list of websites to search
 	+Website select box (html+css)
 		-Toggle display with "Websites" button
 		-Show master list of websites each with a checkbox
