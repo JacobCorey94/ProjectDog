@@ -1,0 +1,10 @@
+"Amazon" amazon.com
+"Best Buy" bestbuy.com
+"Staples" staples.com
+"Macy's" macys.com
+"Costco Wholesale" costco.com
+"Target" target.com
+"Walmart" walmart.com
+"Home Depot" homedepot.com
+"Newegg" newegg.com
+"B&H" bhphotovideo.com
