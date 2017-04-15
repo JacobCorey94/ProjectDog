@@ -1,10 +1,10 @@
-"Amazon" amazon.com
-"Best Buy" bestbuy.com
-"Staples" staples.com
-"Macy's" macys.com
-"Costco Wholesale" costco.com
-"Target" target.com
-"Walmart" walmart.com
-"Home Depot" homedepot.com
-"Newegg" newegg.com
-"B&H" bhphotovideo.com
+"Amazon" http://www.amazon.com
+"Best Buy" http://www.bestbuy.com
+"Staples" http://www.staples.com
+"Macy's" http://www.macys.com
+"Costco Wholesale" http://www.costco.com
+"Target" http://www.target.com
+"Walmart" http://www.walmart.com
+"Home Depot" http://www.homedepot.com
+"Newegg" http://www.newegg.com
+"B&H" http://www.bhphotovideo.com
