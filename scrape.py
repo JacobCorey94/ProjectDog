@@ -4,26 +4,46 @@ import requests
 from bs4 import BeautifulSoup as bsoup
 # 	We will also need sys to handle argument manipulation
 import sys
+#	For some, APIs were able to be used. json is needed
+import json
+#	using regular expressions is helpful for scraping specific strings
+import re
 
 # 	This is the Amazon.com function.
 # 	It handles the scraping of Amazon
 # 	EACH WEBSITE WILL HAVE ITS OWN FUNCTION!
-
-# 	Please add them all otherwise this scraper will not work!
-
-def amazon(item):
-	print item
+import amazon
+import bestbuy
 
 #	This is the main function
 # 	Parameters: item_to_search_for websiteURL1 websiteURL2 etc.
 # 	Parameters are stored as a tuple to parse through
 def scrape(arg):
+	master = []			#	Master stores ALL RESULTS
+	amazonlist = []		#	Holds amazon results
+
+	#	Amazon does NOT use API, and thus might fail occaisionally. Try look fixes this
 	if "https://www.amazon.com" in arg:
-		amazon(arg[1]) # arg[1] should ALWAYS BE THE ITEM to search for
+		while len(amazonlist) == 0:
+			try:
+				amazonlist = amazon.amazon(arg[1]) # arg[1] should ALWAYS BE THE ITEM to search for
+			except:
+				pass
+
+	master += amazonlist
+	#	Bestbuy DOES use API. I would suggest using API, as its faster and more reliable
+	#	However, you will need to get an API key from the website for this
+	if "https://www.bestbuy.com" in arg:
+		master += bestbuy.bestbuy(arg[1])
 
 	# ADD MORE FUNCTION CALLS TO OTHER SITES HERE!!!!!!!
 	#if "https://wherever.net" in arg:
 		#wherever(arg[1])
+
+	for i in master:
+		print i[0]
+		print i[1]
+		print i[2]
 
 	#	More tests inside the function to make sure the arguments were passed in correctly
 
