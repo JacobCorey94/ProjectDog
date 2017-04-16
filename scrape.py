@@ -14,6 +14,8 @@ import re
 # 	EACH WEBSITE WILL HAVE ITS OWN FUNCTION!
 import amazon
 import bestbuy
+import staples
+import macys
 
 #	This is the main function
 # 	Parameters: item_to_search_for websiteURL1 websiteURL2 etc.
@@ -21,24 +23,45 @@ import bestbuy
 def scrape(arg):
 	master = []			#	Master stores ALL RESULTS
 	amazonlist = []		#	Holds amazon results
+	stapleslist = []
+	macyslist = []
 
 	#	Amazon does NOT use API, and thus might fail occaisionally. Try look fixes this
-	if "https://www.amazon.com" in arg:
+	if "amazon" in arg:
 		while len(amazonlist) == 0:
 			try:
 				amazonlist = amazon.amazon(arg[1]) # arg[1] should ALWAYS BE THE ITEM to search for
 			except:
 				pass
 
-	master += amazonlist
+		master += amazonlist
 	#	Bestbuy DOES use API. I would suggest using API, as its faster and more reliable
 	#	However, you will need to get an API key from the website for this
-	if "https://www.bestbuy.com" in arg:
+	if "bestbuy" in arg:
 		master += bestbuy.bestbuy(arg[1])
 
 	# ADD MORE FUNCTION CALLS TO OTHER SITES HERE!!!!!!!
 	#if "https://wherever.net" in arg:
 		#wherever(arg[1])
+
+	# I have had zero issues with staples, but let's not take a chance...
+	if "staples" in arg:
+		while len(stapleslist) == 0:
+			try:
+				stapleslist = staples.staples(arg[1])
+			except:
+				pass
+
+		master += stapleslist
+
+	if "macys" in arg:
+		while len(macyslist) == 0:
+			try:
+				macyslist = macys.macys(arg[1])
+			except:
+				pass
+
+		master += macyslist
 
 	for i in master:
 		print i[0]

@@ -10,13 +10,13 @@ import re
 def amazon(item):
 	#item = "item"
 	# url = "https://www.amazon.com"
-	print "starting"
+	#print "starting"
 	#	If there are any spaces in the search string somehow, fix them now
 	item = item.replace(" ", "+")
 
 	#	Next, we need the search URL. Try searching something generic on the website
 	#	to find it. For Amazon, it's this:
-	url = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + item
+	url = "https://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + item
 
 	#	This isn't always necessary, but sometimes 503 errors will happen without a header.
 	#	Better safe than sorry
