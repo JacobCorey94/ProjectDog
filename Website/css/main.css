@@ -4,6 +4,7 @@ GENERAL
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: #333;
 }
 
 #wrapper {
@@ -16,14 +17,18 @@ a {
   text-decoration: none;
 }
 
+#wrapper{
+  background-color: #fff;
+  height: 100%;
+}
 
 /****************************************
 HEADING
 ****************************************/
 
 header {
-  margin: 100px 0 50px 0;
-  padding: 5px 0 0 0;
+  padding: 80px 0 50px 0;
+  margin: 0 0 20px 0;
   width: 100%;
 }
 
@@ -35,7 +40,7 @@ header {
 h1 {
   font-family: 'Helvetica', sans-serif;
   margin: 0;
-  font-size: 3em;
+  font-size: 4em;
   font-weight: normal;
   line-height: 0.8em;
   letter-spacing: 4px;
@@ -84,7 +89,7 @@ SEARCH BAR
   width: 100%;
   font-size: 1.2em;
   display: inline-block;
-  height: 5%;
+  height: 50px;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, .1);
 }
 
@@ -98,7 +103,7 @@ SEARCH BAR
   display: inline-block;
   min-width: 100px;
   width: 15%;
-  height: 5%;
+  height: 50px;
   border: none;
   text-align: center;
   text-decoration: none;
@@ -124,11 +129,11 @@ WEBSITE SELECT
   font-size: 1.1em;
   list-style: none;
   border-radius: 5px;
-  background-color: #33adff;
+  background-color: #555;
   box-shadow:
         0 1px 4px rgba(51, 173, 255, 0.3), 
         0 0 40px rgba(51, 173, 255, 0.1) inset;
-  padding-left: 2%;
+  padding: 2% 0 2% 2%;
   margin: 0;
   
   -webkit-column-count: 2;
@@ -142,13 +147,11 @@ WEBSITE SELECT
   -webkit-column-rule: 1px solid #fff; /* Chrome, Safari, Opera */
   -moz-column-rule: 1px solid #fff; /* Firefox */
   column-rule: 1px solid #fff;
-  
 }
 
 #website-list li{
-  padding: 6px;
+  padding: 10px;
 }
-
 
 input[type=checkbox] {
 	visibility: hidden;
@@ -174,12 +177,11 @@ input[type=checkbox] {
 	top: 2px;
 	left: 2px;
 	z-index: 1;
-	background: #333;
-	box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+	background: #900;
 }
 
 .checkboxFour input[type=checkbox]:checked + label {
-	background: #26ca28;
+	background: #33adff;
 }
 
 

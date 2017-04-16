@@ -1,12 +1,5 @@
 To do
-	+Website select box (javascript)
-		-Loop through the master list element
-		-Add each website that is checked to an array
 	+Seach bar (javascript)
-		-When either the search button is pressed 
-		or the enter key is pressed while the is the active element,
-		save the string in the search bar into a variable
-		-Replace all whitespaces in the string with a '+'
 		-Send the string along with the list of websites to search to back-end
 	+Front-end to back-end
 		-Need a way to send the search bar string and the list of websites to search 
