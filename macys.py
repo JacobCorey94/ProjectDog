@@ -22,7 +22,7 @@ def macys(item):
                 
                 prodlist.append([])
                 prodlist[c].append(li.find(class_='shortDescription').text.replace("\n",""))
-                prodlist[c].append(re.findall(expr, raw[c])[len(re.findall(expr,raw[c]))-1])
+                prodlist[c].append(re.findall(expr, raw[c])[len(re.findall(expr,raw[c]))-1][1:])
                 
                 prodlist[c].append("https://www.macys.com" + re.findall(linkexpr, raw[c])[0])
 

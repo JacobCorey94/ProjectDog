@@ -46,7 +46,7 @@ def amazon(item):
 		prodlist.append([])
 		prodlist[c].append(li.find("h2").next_element.strip())
 		
-		prodlist[c].append(re.findall(expr, raw[c])[0])
+		prodlist[c].append(re.findall(expr, raw[c])[0][1:])
 		
 		prodlist[c].append(re.findall(linkexpr, raw[c])[0])
 
