@@ -16,6 +16,7 @@ import amazon
 import bestbuy
 import staples
 import macys
+import walmart
 
 #	This is the main function
 # 	Parameters: item_to_search_for websiteURL1 websiteURL2 etc.
@@ -25,6 +26,7 @@ def scrape(arg):
 	amazonlist = []		#	Holds amazon results
 	stapleslist = []
 	macyslist = []
+	walmartlist = []
 
 	#	Amazon does NOT use API, and thus might fail occaisionally. Try look fixes this
 	if "amazon" in arg:
@@ -62,6 +64,15 @@ def scrape(arg):
 				pass
 
 		master += macyslist
+
+	if "walmart" in arg:
+		while len(walmartlist) == 0:
+			try:
+				walmartlist = walmart.walmart(arg[1])
+			except:
+				pass
+
+		master += walmartlist
 
 	for i in master:
 		print i[0]
