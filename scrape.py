@@ -17,6 +17,7 @@ import bestbuy
 import staples
 import macys
 import walmart
+import homedepot
 
 #	This is the main function
 # 	Parameters: item_to_search_for websiteURL1 websiteURL2 etc.
@@ -27,16 +28,20 @@ def scrape(arg):
 	stapleslist = []
 	macyslist = []
 	walmartlist = []
+	homedepotlist = []
 
 	#	Amazon does NOT use API, and thus might fail occaisionally. Try look fixes this
 	if "amazon" in arg:
 		while len(amazonlist) == 0:
 			try:
 				amazonlist = amazon.amazon(arg[1]) # arg[1] should ALWAYS BE THE ITEM to search for
+				if amazonlist[0] == "empty":
+					print "amazon returned no results"
+				else:
+					master += amazonlist
 			except:
 				pass
 
-		master += amazonlist
 	#	Bestbuy DOES use API. I would suggest using API, as its faster and more reliable
 	#	However, you will need to get an API key from the website for this
 	if "bestbuy" in arg:
@@ -51,28 +56,48 @@ def scrape(arg):
 		while len(stapleslist) == 0:
 			try:
 				stapleslist = staples.staples(arg[1])
+				if stapleslist[0] == "empty":
+					print "Staples returned no results"
+				else:
+					master += stapleslist
 			except:
 				pass
-
-		master += stapleslist
 
 	if "macys" in arg:
 		while len(macyslist) == 0:
 			try:
 				macyslist = macys.macys(arg[1])
+				if macyslist[0] == "empty":
+					print "Macy's returned no results"
+				else:
+					master += macyslist
 			except:
 				pass
-
-		master += macyslist
 
 	if "walmart" in arg:
 		while len(walmartlist) == 0:
 			try:
 				walmartlist = walmart.walmart(arg[1])
+				if walmartlist[0] == "empty":
+					print "Walmart returned no results"
+				else:
+					master += walmartlist
 			except:
 				pass
 
 		master += walmartlist
+
+	if "homedepot" in arg:
+		while len(homedepotlist) == 0:
+			try:
+				homedepotlist = homedepot.homedepot(arg[1])
+				if homedepotlist[0] == "empty":
+					print "homedepot returned no results"
+				else:
+					master += homedepotlist
+			except:
+				pass
+		master += homedepotlist
 
 	for i in master:
 		print i[0]

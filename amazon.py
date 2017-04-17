@@ -10,7 +10,7 @@ import re
 def amazon(item):
 	#item = "item"
 	# url = "https://www.amazon.com"
-	#print "starting"
+	print "amazon"
 	#	If there are any spaces in the search string somehow, fix them now
 	item = item.replace(" ", "+")
 
@@ -54,6 +54,9 @@ def amazon(item):
 		c = c + 1
 
 	# return results
+	if len(prodlist) == 0:
+		#print "AMAZON EMPTY"
+		return ["Empty"]
 	return prodlist
 
 # for i in amazon(sys.argv[1]):

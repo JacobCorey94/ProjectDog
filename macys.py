@@ -4,7 +4,7 @@ import sys
 import re
 
 def macys(item):
-        #print "starting"
+        print "macys"
         item = item.replace(" ", "-")
         url = "https://www.macys.com/shop/featured/" + item
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'}
@@ -29,4 +29,6 @@ def macys(item):
                 c = c + 1
 
         # return results
+        if len(prodlist) == 0:
+                return ["Empty"]
         return prodlist

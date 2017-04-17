@@ -5,7 +5,7 @@ import re
 
 def walmart(item):
 	#item = "usb charger"
-
+	print "Walmart"
 	item = item.replace(" ", "%20")
 	url = "https://www.walmart.com/search/?query=" + item
 	headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'}
@@ -30,6 +30,8 @@ def walmart(item):
 
 		c = c + 1
 
+	if len(prodlist) == 0:
+		return ["Empty"]
 	return prodlist
 
 # for i in prodlist:

@@ -3,6 +3,7 @@ import json
 import sys
 
 def bestbuy(item):
+	print "bestbuy"
 	try:
 	    item
 	except NameError:
@@ -23,6 +24,9 @@ def bestbuy(item):
 	    master[i].append(j['products'][i]['name'])
 	    master[i].append(j['products'][i]['salePrice'])
 	    master[i].append(j['products'][i]['url'])
+
+	# if master[len(master)-1][2] == "p":
+	# 	master.pop()
 
 	return master
 
