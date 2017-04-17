@@ -31,7 +31,9 @@ def staples(item):
 		c = c + 1
 
 	if len(prodlist) == 0:
-		return ["Empty"]
+		#print "STAPLES IS EMPTY!"
+		prodlist.append("Empty")
+		#print "index 0 is: " + prodlist[0]
 
 	return prodlist
 

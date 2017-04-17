@@ -11,7 +11,7 @@ import re
 
 # 	This is the Amazon.com function.
 # 	It handles the scraping of Amazon
-# 	EACH WEBSITE WILL HAVE ITS OWN FUNCTION!
+# 	EACH WEBSITE WILL HAVE ITS OWN FUNCTION (located in its own .py file)!
 import amazon
 import bestbuy
 import staples
@@ -35,7 +35,7 @@ def scrape(arg):
 		while len(amazonlist) == 0:
 			try:
 				amazonlist = amazon.amazon(arg[1]) # arg[1] should ALWAYS BE THE ITEM to search for
-				if amazonlist[0] == "empty":
+				if amazonlist[0] == "Empty":
 					print "amazon returned no results"
 				else:
 					master += amazonlist
@@ -56,7 +56,8 @@ def scrape(arg):
 		while len(stapleslist) == 0:
 			try:
 				stapleslist = staples.staples(arg[1])
-				if stapleslist[0] == "empty":
+				print stapleslist[0]
+				if stapleslist[0] == "Empty":
 					print "Staples returned no results"
 				else:
 					master += stapleslist
@@ -67,7 +68,7 @@ def scrape(arg):
 		while len(macyslist) == 0:
 			try:
 				macyslist = macys.macys(arg[1])
-				if macyslist[0] == "empty":
+				if macyslist[0] == "Empty":
 					print "Macy's returned no results"
 				else:
 					master += macyslist
@@ -78,7 +79,7 @@ def scrape(arg):
 		while len(walmartlist) == 0:
 			try:
 				walmartlist = walmart.walmart(arg[1])
-				if walmartlist[0] == "empty":
+				if walmartlist[0] == "Empty":
 					print "Walmart returned no results"
 				else:
 					master += walmartlist
@@ -91,7 +92,7 @@ def scrape(arg):
 		while len(homedepotlist) == 0:
 			try:
 				homedepotlist = homedepot.homedepot(arg[1])
-				if homedepotlist[0] == "empty":
+				if homedepotlist[0] == "Empty":
 					print "homedepot returned no results"
 				else:
 					master += homedepotlist
