@@ -5,6 +5,11 @@ GENERAL
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #333;
+/*
+  min-width: 375px;
+  width: auto !important;
+  width: 375px;
+*/
 }
 
 #wrapper {
@@ -27,9 +32,8 @@ HEADING
 ****************************************/
 
 header {
-  padding: 80px 0 50px 0;
-  margin: 0 0 20px 0;
-  width: 100%;
+  padding: 20px 0 0px 0;
+  margin: 0;
 }
 
 #logo {
@@ -40,39 +44,13 @@ header {
 h1 {
   font-family: 'Helvetica', sans-serif;
   margin: 0;
-  font-size: 4em;
+  font-size: 3.5em;
   font-weight: normal;
   line-height: 0.8em;
   letter-spacing: 4px;
 }
 
 
-
-/****************************************
-NAVIGATION
-****************************************/
-
-nav {
-  display: none;
-  text-align: center;
-  font-size: 1.5em;
-  padding: 10px 0;
-  margin: 20px 0 0;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0 10px;
-  padding: 0;
-}
-
-nav li{
-  display: inline-block;
-}
-
-nav a{
-  padding: 15px 10px;
-}
 
 /****************************************
 SEARCH BAR
@@ -84,11 +62,13 @@ SEARCH BAR
 }
 
 #search_bar {
+  float: left;
+  padding: 0px 0 0px 0;
+  margin: 25px 0 20px 0;
   padding: 1% 3%;
   padding-top: 1.2%;
-  width: 100%;
+  width: 65%;
   font-size: 1.2em;
-  display: inline-block;
   height: 50px;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, .1);
 }
@@ -108,7 +88,11 @@ SEARCH BAR
   text-align: center;
   text-decoration: none;
   font-size: 1.2em;
-  margin: 15px 2px;
+  margin: 25px 0px 0px 0px;
+}
+
+.button:nth-child(1){
+  margin-left: 4%
 }
 
 .button:hover {
@@ -130,6 +114,7 @@ WEBSITE SELECT
   list-style: none;
   border-radius: 5px;
   background-color: #555;
+  width: 98%;
   box-shadow:
         0 1px 4px rgba(51, 173, 255, 0.3), 
         0 0 40px rgba(51, 173, 255, 0.1) inset;
@@ -185,6 +170,49 @@ input[type=checkbox] {
 }
 
 
+
+/****************************************
+RESULTS TABLE
+****************************************/
+
+section {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+    border-bottom: 1px solid #33adff;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+th {
+    background-color: #33adff;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+    font-size: 1.3rem;
+}
+
+td {
+  font-size: 1.2em;
+  padding: 5px 10px 5px 10px;
+}
+
+td:nth-child(even) {
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+}
+
+
 /****************************************
 FOOTER
 ****************************************/
@@ -224,4 +252,22 @@ a:hover {
 
 #website-list li a:hover {
   text-decoration: underline;
+}
+
+
+
+/****************************************
+RESPONSIVE
+****************************************/
+
+@media screen and (max-width: 740px) {
+  #search_bar{
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+  }
+  .button{
+    margin: 0;
+  }
+
+
 }

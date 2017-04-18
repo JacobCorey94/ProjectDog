@@ -1,0 +1,123 @@
+<html><head>
+    <meta charset="utf-8">
+    <title>Dogcrawl</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/results.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" ></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div id="logo">
+          <h1><a href="index.html">Dogcrawl</a></h1>
+        </div>
+        <form id="search-field" onsubmit="search(event)">
+            <input type="text" placeholder="Product Name..." id="search_bar">
+         </form>
+        <div id="buttons">
+          <button class="button" id="goFetch">Go fetch</button>
+          <button class="button" id="websites">Websites</button>
+        </div>
+        <ul id="website-list">
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c1" value="1"  name="" checked/>
+                <label for="c1"></label>
+            </div>
+            <a href="http://www.amazon.com">Amazon</a>
+          </li>
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c2" value="1" name="" checked/>
+                <label for="c2"></label>
+            </div>
+            <a href="http://www.bestbuy.com">Best Buy</a>
+          </li>
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c3" value="1"  name="" checked/>
+                <label for="c3"></label>
+            </div>
+            <a href="http://www.staples.com">Staples</a>
+          </li>
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c4" value="1" name="" checked/>
+                <label for="c4"></label>
+            </div>
+            <a href="http://www.macys.com">Macy's</a>
+          </li>
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c6" value="1" name="" checked/>
+                <label for="c6"></label>
+            </div>
+            <a href="http://www.target.com">Target</a>
+          </li>
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c7" value="1" name="" checked/>
+                <label for="c7"></label>
+            </div>
+            <a href="http://www.walmart.com">Walmart</a>
+          </li>
+          <li>
+           <div class="checkboxFour">
+                <input type="checkbox" id="c8" value="1" name="" checked/>
+                <label for="c8"></label>
+            </div>
+            <a href="http://www.homedepot.com">Home Depot</a>
+          </li>
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c9" value="1" name="" checked/>
+                <label for="c9"></label>
+            </div>
+            <a href="http://www.newegg.com">Newegg</a>
+          </li>
+          <li>
+            <div class="checkboxFour">
+                <input type="checkbox" id="c10" value="1" name="" checked/>
+                <label for="c10"></label>
+            </div>
+            <a href="http://www.bhphotovideo.com">B&ampH</a>
+          </li>
+        </ul>
+      </header>
+      <section style="overflow-x:auto;">
+        <table>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Website</th>
+            </tr>
+            <tr>
+              <td><a href="https://www.product-page.com">"P1"</a></td>
+              <td>"Price1"</td>
+              <td><a href="https://www.website-address.com">"Website1"</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.product-page.com">"P2"</a></td>
+              <td>"Price2"</td>
+              <td><a href="https://www.website-address.com">"Website2"</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.product-page.com">"P3"</a></td>
+              <td>"Price3"</td>
+              <td><a href="https://www.website-address.com">"Website3"</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.product-page.com">"P4"</a></td>
+              <td>"Price4"</td>
+              <td><a href="https://www.website-address.com">"Website4"</a></td>
+            </tr>
+
+        </table>
+      </section>
+      <footer>
+        <p>© 2017 Connor Gersbach.</p>
+      </footer>
+    </div>
+    <script src="js/search.js"></script>
+</body></html>
