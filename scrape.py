@@ -18,6 +18,7 @@ import staples
 import macys
 import walmart
 import homedepot
+import target
 
 #	This is the main function
 # 	Parameters: item_to_search_for websiteURL1 websiteURL2 etc.
@@ -100,11 +101,14 @@ def scrape(arg):
 				pass
 		master += homedepotlist
 
-	print json.dumps(master)
-	#for i in master:
-		#print i[0]
-		#print i[1]
-		#print i[2]
+	if "target" in arg:
+		master += target.target(arg[1])
+
+	# print json.dumps(master)
+	for i in master:
+		print i[0]
+		print i[1]
+		print i[2]
 		
 	#	More tests inside the function to make sure the arguments were passed in correctly
 
