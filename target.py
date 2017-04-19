@@ -20,9 +20,22 @@ def target(item):
     for i in range(len(j['search_response']['items']['Item'])):
         master.append([])
         master[i].append(j['search_response']['items']['Item'][i]['title'])
-        master[i].append(j['search_response']['items']['Item'][i]['list_price']['price'])
-        master[i].append("www.target.com" + j['search_response']['items']['Item'][i]['url'])
+        if j['search_response']['items']['Item'][i]['list_price']['price'] == 0.0:
+            print master[i].append("0.00")
+        else:
+            master[i].append(str(j['search_response']['items']['Item'][i]['list_price']['price']))
+        master[i].append("https://www.target.com" + j['search_response']['items']['Item'][i]['url'])
+
+    for x in master:
+        if x[1] == '0.0':
+            print "Found a zero'd price"
+            x[1] = '0.00'
 
     return master
 
-print target("target")
+#print target("item")
+
+# for i in target("item"):
+#     print i[0]
+#     print i[1]
+#     print i[2]
