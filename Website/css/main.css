@@ -186,6 +186,30 @@ input[type=checkbox] {
 
 
 /****************************************
+DOG GIF
+****************************************/
+
+#runDog{
+  display:none; 
+  top:calc(50% - 100px); 
+  margin: 0 auto;
+  position: fixed;left: 
+  calc(50% - 200px);
+  width: 200px;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  border: 1px solid silver;
+  z-index: 2;
+}
+
+
+
+/****************************************
 FOOTER
 ****************************************/
 
