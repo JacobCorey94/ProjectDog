@@ -142,8 +142,8 @@ if len(sys.argv) < 3:
 else:
     scrape(list(sys.argv))
 
-#print json.dumps(master)
-for i in master:
-    print i[0]
-    print i[1]
-    print i[2]
+print json.dumps(master)
+# for i in master:
+#     print i[0]
+#     print i[1]
+#     print i[2]
