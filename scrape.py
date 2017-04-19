@@ -100,11 +100,12 @@ def scrape(arg):
 				pass
 		master += homedepotlist
 
-	for i in master:
-		print i[0]
-		print i[1]
-		print i[2]
-
+	print json.dumps(master)
+	#for i in master:
+		#print i[0]
+		#print i[1]
+		#print i[2]
+		
 	#	More tests inside the function to make sure the arguments were passed in correctly
 
 	# print "scrape was called with", len(arg), "arguments:",
