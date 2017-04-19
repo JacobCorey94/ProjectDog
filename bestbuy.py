@@ -22,7 +22,7 @@ def bestbuy(item):
 	for i in range(len(j['products'])):
 	    master.append([])
 	    master[i].append(j['products'][i]['name'])
-	    master[i].append(j['products'][i]['salePrice'])
+	    master[i].append(str(j['products'][i]['salePrice']))
 	    master[i].append(j['products'][i]['url'])
 
 	# if master[len(master)-1][2] == "p":
