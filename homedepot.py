@@ -29,7 +29,7 @@ def homedepot(item):
                 title = re.sub('\s+', ' ', title).strip()
                 prodlist[c].append(title)
                 prodlist[c].append(re.findall(expr, raw[c])[0][1:])
-                prodlist[c].append("www.homedepot.com" + re.findall(linkexpr, raw[c])[0])
+                prodlist[c].append("https://www.homedepot.com" + re.findall(linkexpr, raw[c])[0])
 
                 c = c + 1
 

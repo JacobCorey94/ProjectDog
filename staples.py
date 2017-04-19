@@ -26,7 +26,7 @@ def staples(item):
 		prodlist.append([])
 		prodlist[c].append(div.find("a", class_='product-title scTrack pfm').text.strip())
 		prodlist[c].append(re.findall(expr, raw[c])[0][1:])
-		prodlist[c].append("www.staples.com" + re.findall(linkexpr, raw[c])[0])
+		prodlist[c].append("https://www.staples.com" + re.findall(linkexpr, raw[c])[0])
 
 		c = c + 1
 

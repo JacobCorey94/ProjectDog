@@ -26,7 +26,7 @@ def walmart(item):
 		prodlist.append([])
 		prodlist[c].append(div.find("span", class_='visuallyhidden').text.strip())
 		prodlist[c].append(div.find("span", class_='Price-characteristic').text.strip() + "." + div.find("span", class_='Price-mantissa').text.strip())
-		prodlist[c].append("www.walmart.com" + re.findall(linkexpr, raw[c])[0])
+		prodlist[c].append("https://www.walmart.com" + re.findall(linkexpr, raw[c])[0])
 
 		c = c + 1
 

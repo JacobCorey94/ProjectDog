@@ -1,17 +1,8 @@
-# 	First we need out libraries to handle the scraping. First, requests
 import requests
-# 	We also need BeautifulSoup from bs4. I'm naming it bsoup to make it easier to type out later on
 from bs4 import BeautifulSoup as bsoup
-# 	We will also need sys to handle argument manipulation
 import sys
-#	For some, APIs were able to be used. json is needed
 import json
-#	using regular expressions is helpful for scraping specific strings
 import re
-
-# 	This is the Amazon.com function.
-# 	It handles the scraping of Amazon
-# 	EACH WEBSITE WILL HAVE ITS OWN FUNCTION (located in its own .py file)!
 import amazon
 import bestbuy
 import staples
@@ -19,124 +10,140 @@ import macys
 import walmart
 import homedepot
 import target
+import newegg
+import threading
 
-#	This is the main function
-# 	Parameters: item_to_search_for websiteURL1 websiteURL2 etc.
-# 	Parameters are stored as a tuple to parse through
+class Scrape(threading.Thread):
+    def __init__(self,target,*args):
+        self._target=target
+        self._args=args
+        threading.Thread.__init__(self)
+    def run(self):
+        self._target(*self._args)
+
+def scrape_wm(arg):
+    global master
+    try:
+        walmartlist = walmart.walmart(arg)
+        if walmartlist[0] == "Empty":
+                print "Walmart returned no results"
+        else:
+                master += walmartlist
+    except:
+        pass
+def scrape_target(arg):
+    global master
+    master += target.target(arg)
+def scrape_staples(arg):
+    global master
+    try:
+        st = staples.staples(arg)
+        if st[0] == "Empty":
+                print "Staples returned no results"
+        else:
+                master += st
+    except:
+        pass
+def scrape_bb(arg):
+    global master
+    master += bestbuy.bestbuy(arg)
+def scrape_macys(arg):
+    macyslist = []
+    global master
+    try:
+        macyslist = macys.macys(arg)
+        if macyslist[0] == "Empty":
+            print "Macys returned no results"
+        else:
+            master += macyslist
+    except:
+        pass
+def scrape_homedepot(arg):
+    hdl = []
+    global master
+    try:
+        hdl = homedepot.homedepot(arg)
+        if hdl[0] == "Empty":
+            print "Home Depot returned no results"
+        else:
+            master += hdl
+    except:
+        pass
+def scrape_amzn(arg):
+    amzn = []
+    global master
+    try:
+        amzn = amazon.amazon(arg)
+        # amzn[0] = "Empty"
+        if amzn[0] == "Empty":
+            print "Amazon returned no results"
+        else:
+            master += amzn
+    except:
+        pass
+
+def scrape_ne(arg):
+    ne = []
+    global master
+    try:
+        ne = newegg.newegg(arg)
+        if ne[0] == "Empty":
+            print "Newegg returned no results"
+        else:
+            master += ne
+    except:
+        pass
+
 def scrape(arg):
-	master = []			#	Master stores ALL RESULTS
-	amazonlist = []		#	Holds amazon results
-	stapleslist = []
-	macyslist = []
-	walmartlist = []
-	homedepotlist = []
+    search = arg[1]
+    arg.pop(1)
+    t = []
+    if "amazon" in arg:
+        a = Scrape(scrape_amzn, search)
+        a.start()
+        t.append(a)
+    if "bestbuy" in arg:
+        bb = Scrape(scrape_bb, search)
+        bb.start()
+        t.append(bb)
+    if "homedepot" in arg:
+        hd = Scrape(scrape_homedepot, search)
+        hd.start()
+        t.append(hd)
+    if "macys" in arg:
+        m = Scrape(scrape_macys, search)
+        m.start()
+        t.append(m)
+    if "staples" in arg:
+        s = Scrape(scrape_staples, search)
+        s.start()
+        t.append(s)
+    if "target" in arg:
+        tar = Scrape(scrape_target, search)
+        tar.start()
+        t.append(tar)
+    if "walmart" in arg:
+        wm = Scrape(scrape_wm, search)
+        wm.start()
+        t.append(wm)
+    if "newegg" in arg:
+        ne = Scrape(scrape_ne, search)
+        ne.start()
+        t.append(ne)
+    for thr in t:
+        thr.join()
+master = []
 
-	#	Amazon does NOT use API, and thus might fail occaisionally. Try look fixes this
-	if "amazon" in arg:
-		while len(amazonlist) == 0:
-			try:
-				amazonlist = amazon.amazon(arg[1]) # arg[1] should ALWAYS BE THE ITEM to search for
-				if amazonlist[0] == "Empty":
-					print "amazon returned no results"
-				else:
-					master += amazonlist
-			except:
-				pass
-
-	#	Bestbuy DOES use API. I would suggest using API, as its faster and more reliable
-	#	However, you will need to get an API key from the website for this
-	if "bestbuy" in arg:
-		master += bestbuy.bestbuy(arg[1])
-
-	# ADD MORE FUNCTION CALLS TO OTHER SITES HERE!!!!!!!
-	#if "https://wherever.net" in arg:
-		#wherever(arg[1])
-
-	# I have had zero issues with staples, but let's not take a chance...
-	if "staples" in arg:
-		while len(stapleslist) == 0:
-			try:
-				stapleslist = staples.staples(arg[1])
-				print stapleslist[0]
-				if stapleslist[0] == "Empty":
-					print "Staples returned no results"
-				else:
-					master += stapleslist
-			except:
-				pass
-
-	if "macys" in arg:
-		while len(macyslist) == 0:
-			try:
-				macyslist = macys.macys(arg[1])
-				if macyslist[0] == "Empty":
-					print "Macy's returned no results"
-				else:
-					master += macyslist
-			except:
-				pass
-
-	if "walmart" in arg:
-		while len(walmartlist) == 0:
-			try:
-				walmartlist = walmart.walmart(arg[1])
-				if walmartlist[0] == "Empty":
-					print "Walmart returned no results"
-				else:
-					master += walmartlist
-			except:
-				pass
-
-		master += walmartlist
-
-	if "homedepot" in arg:
-		while len(homedepotlist) == 0:
-			try:
-				homedepotlist = homedepot.homedepot(arg[1])
-				if homedepotlist[0] == "Empty":
-					print "homedepot returned no results"
-				else:
-					master += homedepotlist
-			except:
-				pass
-		master += homedepotlist
-
-	if "target" in arg:
-		master += target.target(arg[1])
-
-	# print json.dumps(master)
-	for i in master:
-		print i[0]
-		print i[1]
-		print i[2]
-		
-	#	More tests inside the function to make sure the arguments were passed in correctly
-
-	# print "scrape was called with", len(arg), "arguments:",
-
-	# for x in arg:
-	# 	print x,
-	# print ""
-
-	# return "You made it into the scrape() function!"
-
-# 	If the input is wrong, print the error to the results page
-# 	Otherwise, call the scrape() function
+#passed = ["scrape.py","nintendo switch","staples","walmart","bestbuy"]
 if len(sys.argv) < 3:
 
-	text_file = open("results.txt", "w")
-	text_file.write("ERROR! Wrong arguments passed in, 0.00\n")
-	text_file.write("Proper use: python scrape.py item web1 web2 etc, 0.00\n")
-	text_file.close();
+    print "ERROR! Wrong arguments passed in, 0.00"
+    print "Proper use: python scrape.py item web1 web2 etc, 0.00"
+else:
+    scrape(list(sys.argv))
 
-	print "Error printed to results.txt..."
-
-else:	
-	scrape(list(sys.argv))
-
-# 	Output tests to see how arguments were passed in
-# 	Feel free to run similar tests to make sure you understand how it's working
-
-# print "This is the name of the script:", sys.argv[0] 
-# print "Number of arguments:", len(sys.argv)
-# print "The arguments are:", str(sys.argv)
+#print json.dumps(master)
+for i in master:
+    print i[0]
+    print i[1]
+    print i[2]
