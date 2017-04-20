@@ -7,12 +7,12 @@ function presentData(result) {
 		$("section").append("<section id='results'><section>");
 	}
   $("#results").append("<table id=\"resultTable\" class=\"sortable\" style=\"width:100%\">");
-  $("#resultTable").append("<tr><th>Price</th><th>Item</th></tr>");
+  $("#resultTable").append("<thead><tr><th>Price</th><th>Item</th></tr></thead><tbody>");
 	for(var ind=0; ind < result.length; ind++) {
 		//$("#results").append("<a href=\""+result[ind][2]+"\">$"+result[ind][1]+" - "+result[ind][0]+"</a><br />");
     $("#resultTable").append("<tr><td>$"+result[ind][1]+"</td><td><a href=\""+result[ind][2]+"\">"+result[ind][0]+"</a></td></tr>");
   }
-  $("#resultTable").append("</table>");
+  $("#resultTable").append("</tbody></table>");
 	$("#runDog").css("display","none");
 }
 function displayWebsites() {
