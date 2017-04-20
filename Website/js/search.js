@@ -6,9 +6,13 @@ function presentData(result) {
 		// Create it if none exists
 		$("section").append("<section id='results'><section>");
 	}
+  $("#results").append("<table stile=\"width:100%\">")
+  $("#results").append("<tr><th>Price</th><th>Item</th></tr>")
 	for(var ind=0; ind < result.length; ind++) {
-		$("#results").append("<a href=\""+result[ind][2]+"\">$"+result[ind][1]+" - "+result[ind][0]+"</a><br />");
-	}
+		//$("#results").append("<a href=\""+result[ind][2]+"\">$"+result[ind][1]+" - "+result[ind][0]+"</a><br />");
+    $("#results").append("<tr><td>$"+result[ind][1]+"</td><td href=\""+result[ind][2]+"\">"+result[ind][0]"</td></tr>")
+  }
+  $("#results").append("</table>")
 	$("#runDog").css("display","none");
 }
 function displayWebsites() {
