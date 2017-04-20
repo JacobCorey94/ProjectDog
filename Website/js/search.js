@@ -10,7 +10,7 @@ function presentData(result) {
   $("#results").append("<tr><th>Price</th><th>Item</th></tr>");
 	for(var ind=0; ind < result.length; ind++) {
 		//$("#results").append("<a href=\""+result[ind][2]+"\">$"+result[ind][1]+" - "+result[ind][0]+"</a><br />");
-    $("#results").append("<tr><td>$"+result[ind][1]+"</td><td href=\""+result[ind][2]+"\">"+result[ind][0]+"</td></tr>");
+    $("#results").append("<tr><td>$"+result[ind][1]+"</td><td><a href=\""+result[ind][2]+"\">"+result[ind][0]+"</a></td></tr>");
   }
   $("#results").append("</table>");
 	$("#runDog").css("display","none");
