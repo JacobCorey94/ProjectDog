@@ -57,6 +57,11 @@ function search(e) {
 
   var fetch;
   $("#runDog").css("display","block");
+  timeOut = setTimeout(function() { 
+  $("#runDog").css("display","none");
+  alert("No items found...");
+  location.href="http://159.203.130.81/ProjectDog/Website";
+  },7000);
   var throwItem = $.ajax(
     { url: "fetch.php?item=" + search_term + "&sites=" + checked_websites,
       dataType: 'json',
