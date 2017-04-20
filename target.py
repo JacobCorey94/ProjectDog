@@ -21,7 +21,7 @@ def target(item):
         master.append([])
         master[i].append(j['search_response']['items']['Item'][i]['title'])
         if j['search_response']['items']['Item'][i]['list_price']['price'] == 0.0:
-            master[i].append("0.00")
+            master[i].append("----")
         else:
             master[i].append(str(j['search_response']['items']['Item'][i]['list_price']['price']))
         master[i].append("https://www.target.com" + j['search_response']['items']['Item'][i]['url'])
