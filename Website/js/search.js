@@ -61,7 +61,7 @@ function search(e) {
   $("#runDog").css("display","none");
   alert("No items found...");
   location.href="http://159.203.130.81/ProjectDog/Website";
-  },7000);
+  },10000);
   var throwItem = $.ajax(
     { url: "fetch.php?item=" + search_term + "&sites=" + checked_websites,
       dataType: 'json',
